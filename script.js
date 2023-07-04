@@ -1,3 +1,13 @@
+const btnRock = document.querySelector(`.btnRock`);
+const btnPaper = document.querySelector(`.btnPaper`);
+const btnScissors = document.querySelector(`.btnScissors`);
+const buttons = document.querySelectorAll(`button`);
+const resultDiv = document.querySelector(`.resultDiv`)
+const result = document.querySelector(`.result`);
+const scoreBoard = document.querySelector(`.scoreBoard`);
+const finalResult = document.querySelector(`.finalResult`);
+
+//Computer Select
 function getComputerChoice(){
 
     let choice = [`Rock`, `Paper`, `Scissors`];
@@ -5,10 +15,10 @@ function getComputerChoice(){
     
     return choice[randomNumber];
 }
-
+//Game Function
 function playRound(playerSelection, computerSelection){
     //Converting player's choice to Uppercase
-    let playerChoice = playerSelection.toUpperCase();
+    let playerChoice = playerSelection;
 
     //Rock Section
     if (playerChoice == `ROCK` && computerSelection == `Rock`)
@@ -34,40 +44,79 @@ function playRound(playerSelection, computerSelection){
     else if (playerChoice == `SCISSORS` && computerSelection == `Scissors`)
         return `It's a TIE!`;
 }
+//With UI
+let playerScore = 0;
+let computerScore = 0;
 
-function game(){
+    btnRock.addEventListener(`click`, () => {
 
-    let playerScore = 0;
-    let computerScore = 0;
-    let i = 0;
-    //Rounds will be repeated 5 times
-    for(i=0; i<5; i++){
-        let playerSelection = prompt(`Choose your weapon: `);
-        const computerSelection = getComputerChoice();
-        alert(playRound(playerSelection, computerSelection));
-        
-    //Scoring system
-        if ((playRound(playerSelection, computerSelection)) == `You Lose! Paper BEATS Rock.`) 
-            computerScore += 1;
-        else if ((playRound(playerSelection, computerSelection)) == `You Win! Rock BEATS Scissors`) 
-            playerScore += 1;
-        else if ((playRound(playerSelection, computerSelection)) == `You Win! Paper BEATS Rock`) 
-            playerScore += 1;
-        else if ((playRound(playerSelection, computerSelection)) == `You Lose! Scissors BEATS Paper.`) 
-            computerScore += 1;
-        else if ((playRound(playerSelection, computerSelection)) == `You Lose! Rock BEATS Scissors.`) 
-            computerScore += 1;
-        else if ((playRound(playerSelection, computerSelection)) == `You Win! Scissors BEATS Paper.`) 
-            playerScore += 1;
-        else{
-            playerScore += 0;
-            computerScore += 0;
-        }
-        alert(`Player: ${playerScore} | Computer: ${computerScore}`);
-    }
+                                    if(playerScore == 5 || computerScore == 5){
+                                        if(playerScore == 5){
+                                            finalResult.textContent = `Player wins!`;
+                                        }
+                                        if(computerScore == 5){
+                                            finalResult.textContent = `Computer wins!`;
+                                        }
+                                        buttons.forEach(button =>{
+                                            button.disabled = true;
+                                        });
+                                    }
 
-    alert(`Final score - Player: ${playerScore} | Computer: ${computerScore}` );
-    
-}
+                                    else{
+                                    result.textContent = playRound(`ROCK`, getComputerChoice());
+                                    if (result.textContent == `You Lose! Paper BEATS Rock.`) 
+                                            computerScore += 1;
+                                    else if (result.textContent == `You Win! Rock BEATS Scissors`)
+                                            playerScore += 1;
+            
+                                    scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
+                                    }
+                                });
 
-game();
+    btnPaper.addEventListener(`click`, () => {
+                                    if(playerScore == 5 || computerScore == 5){
+                                        if(playerScore == 5){
+                                            finalResult.textContent = `Player wins!`;
+                                        }
+                                        if(computerScore == 5){
+                                            finalResult.textContent = `Computer wins!`;
+                                        }
+                                        buttons.forEach(button =>{
+                                            button.disabled = true;
+                                        });
+                                    }
+                                    
+                                    else{
+                                    result.textContent = playRound(`PAPER`, getComputerChoice());
+                                    if (result.textContent == `You Win! Paper BEATS Rock`) 
+                                            playerScore += 1;
+                                    else if (result.textContent == `You Lose! Scissors BEATS Paper.`) 
+                                            computerScore += 1;
+                                    scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
+                                    }
+                                });
+    btnScissors.addEventListener(`click`, () => {
+        if(playerScore == 5 || computerScore == 5){
+                                        if(playerScore == 5){
+                                            finalResult.textContent = `Player wins!`;
+                                        }
+                                        if(computerScore == 5){
+                                            finalResult.textContent = `Computer wins!`;
+                                        }
+                                        buttons.forEach(button =>{
+                                            button.disabled = true;
+                                        });
+                                    }
+
+                                    else{
+                                    result.textContent = playRound(`SCISSORS`, getComputerChoice());
+                                    if (result.textContent == `You Lose! Rock BEATS Scissors.`) 
+                                            computerScore += 1;
+                                    else if (result.textContent == `You Win! Scissors BEATS Paper.`) 
+                                            playerScore += 1;
+                                    scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
+                                    }
+                                });
+                               
+console.log(playerScore);
+
