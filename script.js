@@ -93,7 +93,6 @@ let computerScore = 0;
                                 });
 
     btnPaper.addEventListener(`click`, () => {
-                                    
                                     result.textContent = playRound(`PAPER`, getComputerChoice());
                                     if (result.textContent == `You Win! Paper BEATS Rock`){
                                             playerScore += 1;
@@ -136,10 +135,7 @@ let computerScore = 0;
                                     scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
                                     
                                 });
-    btnScissors.addEventListener(`click`, () => {
-       
-
-                                    
+    btnScissors.addEventListener(`click`, () => {     
                                     result.textContent = playRound(`SCISSORS`, getComputerChoice());
                                     if (result.textContent == `You Lose! Rock BEATS Scissors.`){
                                             computerScore += 1;
@@ -182,4 +178,3 @@ let computerScore = 0;
                                     scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
 
                                 });
-
