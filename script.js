@@ -117,6 +117,5 @@ let computerScore = 0;
                                     scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
                                     }
                                 });
-                               
-console.log(playerScore);
+                            
 
