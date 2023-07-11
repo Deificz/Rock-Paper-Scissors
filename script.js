@@ -6,7 +6,8 @@ const resultDiv = document.querySelector(`.resultDiv`)
 const result = document.querySelector(`.result`);
 const scoreBoard = document.querySelector(`.scoreBoard`);
 const finalResult = document.querySelector(`.finalResult`);
-
+const btnPlay = document.querySelectorAll(`.playBtn`);
+const btnReset = document.querySelector(`.btnReset`);
 //Computer Select
 function getComputerChoice(){
 
@@ -44,31 +45,29 @@ function playRound(playerSelection, computerSelection){
     else if (playerChoice == `SCISSORS` && computerSelection == `Scissors`)
         return `It's a TIE!`;
 }
+
 //With UI
 let playerScore = 0;
 let computerScore = 0;
-
+    
     btnRock.addEventListener(`click`, () => {
                                     result.textContent = playRound(`ROCK`, getComputerChoice());
                                     if (result.textContent == `You Lose! Paper BEATS Rock.`){
                                             computerScore += 1;
 
-                                            if(playerScore == 5){
-                                                finalResult.textContent = `GAMEOVER! Player wins!`;
-                                                result.textContent = ``;
-                                                scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
-                                                    button.disabled = true;
-                                                });
-                                            }
                                             if(computerScore == 5){
                                                 finalResult.textContent = `GAMEOVER! Computer wins!`;
                                                 result.textContent = ``;
                                                 scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
+                                                btnPlay.forEach(button =>{
                                                     button.disabled = true;
                                                 });
+                                                btnReset.style.cssText = `visibility:visible`;
+                                                btnReset.addEventListener(`click`, ()=> {
+                                                    location.reload()
+                                                })
                                             }
+                                            scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
                                     }
                                     else if (result.textContent == `You Win! Rock BEATS Scissors`){
                                             playerScore += 1;
@@ -76,19 +75,15 @@ let computerScore = 0;
                                                 finalResult.textContent = `GAMEOVER! Player wins!`;
                                                 result.textContent = ``;
                                                 scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
+                                                btnPlay.forEach(button =>{
                                                     button.disabled = true;
                                                 });
+                                                btnReset.style.cssText = `visibility:visible`;
+                                                btnReset.addEventListener(`click`, ()=> {
+                                                    location.reload()
+                                                })
                                             }
-                                            if(computerScore == 5){
-                                                finalResult.textContent = `GAMEOVER! Computer wins!`;
-                                                result.textContent = ``;
-                                                scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
-                                                    button.disabled = true;
-                                                });
-                                            }
-                                    scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
+                                            scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;  
                                     }
                                 });
 
@@ -100,61 +95,52 @@ let computerScore = 0;
                                                 finalResult.textContent = `GAMEOVER! Player wins!`;
                                                 result.textContent = ``;
                                                 scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
+                                                btnPlay.forEach(button =>{
                                                     button.disabled = true;
                                                 });
+                                                btnReset.style.cssText = `visibility:visible`;
+                                                btnReset.addEventListener(`click`, ()=> {
+                                                    location.reload()
+                                                })
                                             }
-                                            if(computerScore == 5){
-                                                finalResult.textContent = `GAMEOVER! Computer wins!`;
-                                                result.textContent = ``;
-                                                scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
-                                                    button.disabled = true;
-                                                });
-                                            }
+                                            scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
                                     }
                                     else if (result.textContent == `You Lose! Scissors BEATS Paper.`){
                                             computerScore += 1;
-                                            if(playerScore == 5){
-                                                finalResult.textContent = `GAMEOVER! Player wins!`;
-                                                result.textContent = ``;
-                                                scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
-                                                    button.disabled = true;
-                                                });
-                                            }
                                             if(computerScore == 5){
                                                 finalResult.textContent = `GAMEOVER! Computer wins!`;
                                                 result.textContent = ``;
                                                 scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
+                                                btnPlay.forEach(button =>{
                                                     button.disabled = true;
                                                 });
+                                                btnReset.style.cssText = `visibility:visible`;
+                                                btnReset.addEventListener(`click`, ()=> {
+                                                    location.reload()
+                                                })
                                             }
+                                            scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
                                     }
-                                    scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
+                                    
                                     
                                 });
     btnScissors.addEventListener(`click`, () => {     
                                     result.textContent = playRound(`SCISSORS`, getComputerChoice());
                                     if (result.textContent == `You Lose! Rock BEATS Scissors.`){
                                             computerScore += 1;
-                                            if(playerScore == 5){
-                                                finalResult.textContent = `GAMEOVER! Player wins!`;
-                                                result.textContent = ``;
-                                                scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
-                                                    button.disabled = true;
-                                                });
-                                            }
                                             if(computerScore == 5){
                                                 finalResult.textContent = `GAMEOVER! Computer wins!`;
                                                 result.textContent = ``;
                                                 scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
+                                                btnPlay.forEach(button =>{
                                                     button.disabled = true;
                                                 });
+                                                btnReset.style.cssText = `visibility:visible`;
+                                                btnReset.addEventListener(`click`, ()=> {
+                                                    location.reload()
+                                                })
                                             }
+                                            scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
                                     }
                                     else if (result.textContent == `You Win! Scissors BEATS Paper.`){
                                             playerScore += 1;
@@ -162,19 +148,16 @@ let computerScore = 0;
                                                 finalResult.textContent = `GAMEOVER! Player wins!`;
                                                 result.textContent = ``;
                                                 scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
+                                                btnPlay.forEach(button =>{
                                                     button.disabled = true;
                                                 });
+                                                btnReset.style.cssText = `visibility:visible`;
+                                                btnReset.addEventListener(`click`, ()=> {
+                                                    location.reload()
+                                                })
                                             }
-                                            if(computerScore == 5){
-                                                finalResult.textContent = `GAMEOVER! Computer wins!`;
-                                                result.textContent = ``;
-                                                scoreBoard.textContent =``;
-                                                buttons.forEach(button =>{
-                                                    button.disabled = true;
-                                                });
-                                            }
+                                            scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
                                     }
-                                    scoreBoard.textContent = `Player : ${playerScore} | Computer: ${computerScore}`;
+                                    
 
                                 });
