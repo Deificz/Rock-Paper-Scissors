@@ -5,3 +5,5 @@ Tech stack used:
   - HTML
   - CSS
   - Vanilla JavaScript
+
+**Live Preview:** https://deificz.github.io/Rock-Paper-Scissors/
