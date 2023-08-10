@@ -1,2 +1,7 @@
 # TOP-Rock-Paper-Scissors
-This is a project in TOP Foundations Course Basic JS Part
+A Web based game of Rock Paper Scissors.
+
+Tech-stack used:
+  - HTML
+  - CSS
+  - Vanilla JavaScript
